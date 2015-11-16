@@ -14,7 +14,6 @@
     $file = $_GET['file'];
 
     $headerFile = sprintf('%s/header.txt', dirname(__FILE__));
-    var_dump($headerFile);
     if (file_exists($headerFile)) {
         $header = file_get_contents($headerFile);
     } else {
@@ -52,91 +51,14 @@
 <html>
 <head>
     <title><?php print $title; ?></title>
-    <style>
-        body {
-            background-color: #171717;
-            color: #999;
-            font-size: 1.2em;
-        }
-        .content {
-            text-align: justify;
-            /*border: 10px double #171717;*/
-            /*border-image: url(decor-dies.png) 30 / 25px round;*/
-            border: 10px;
-            border-style: double;
-            padding: 30px;
-            margin-bottom: 50px;
-        }
-        .content span {
-            color: #6C798D;
-        }
-        header.content {
-            background-position: center top;
-            padding: 10px;
-        }
-        div .content {
-            background-image: url(debian.png);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
-        }
+    <link rel="stylesheet" href="base.css" type="text/css"/>
 
-        header pre {
-            overflow: hidden;
-            margin: 0px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0px;
-            padding: 5px;
-            border-top: 2px dashed;
-        }
-        nav ul li {
-            display: inline;
-            padding: 5px;
-            border-right: 2px dashed;
-        }
-        nav ul li:last-child {
-            border: none;
-        }
-
-        /*nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        nav ul li {
-            float: left;
-        }
-
-        nav ul li a {
-            display: block;
-            padding: 5px;
-            background-color: #000;
-        }*/
-
-        a {
-            text-decoration: none;
-        }
-        a:link, a:visited {
-            color: #CFCFCF;
-        }
-        a:hover {
-            color: #616161;
-        }
-        a:active {
-            color: #616161;
-        }
-    </style>
 </head>
 <body>
 <div class="main">
     <header class="content">
     <?php print $header; ?>
-    <?php if ($handle = opendir('/home/marc/Documents/public')): ?>
+    <?php if ($handle = opendir(dirname(__FILE__))): ?>
     <nav>
         <ul>
         <?php while (false !== ($file = readdir($handle))) : ?>

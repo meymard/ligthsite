@@ -1,0 +1,58 @@
+body {
+    background-color: #171717;
+    color: #999;
+    font-size: 1.2em;
+}
+.content {
+    text-align: justify;
+    border: 10px;
+    border-style: double;
+    padding: 30px;
+    margin-bottom: 50px;
+}
+.content span {
+    color: #6C798D;
+}
+header.content {
+    background-position: center top;
+    padding: 10px;
+}
+div .content {
+    background-image: url(debian.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header pre {
+    overflow: hidden;
+    margin: 0px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 5px;
+    border-top: 2px dashed;
+}
+nav ul li {
+    display: inline;
+    padding: 5px;
+    border-right: 2px dashed;
+}
+nav ul li:last-child {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+}
+a:link, a:visited {
+    color: #CFCFCF;
+}
+a:hover {
+    color: #616161;
+}
+a:active {
+    color: #616161;
+}
