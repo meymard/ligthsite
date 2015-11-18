@@ -44,6 +44,13 @@ nav ul li:last-child {
     border: none;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin: 1em 0 0.5em 0;
+}
+p {
+    margin: 1em 0;
+}
+
 a {
     text-decoration: none;
 }

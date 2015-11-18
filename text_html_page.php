@@ -39,12 +39,18 @@
     $content = preg_replace('/^title\. (.*)$/m', '', $content);
     // h1 à h6
     $content = preg_replace('/^h([0-9]+)\. (.*)$/m', '<h$1>$2</h$1>', $content);
+    // ul
+    $content = preg_replace(['/^ul\.$/m', '/^\/ul\.$/m'], ['<ul>', '</ul>'], $content);
+    $content = preg_replace('/^li\. (.*)$/m', '<li>$1</li>', $content);
     // p
     $content = preg_replace(['/^p\.$/m', '/^\/p\.$/m'], ['<p>', '</p>'], $content);
-    // Supprimer BR en trop
+    // br
     $content = preg_replace("/(?!<[\/]?.*>)[\n]+(?!<[\/]?.*>)/m", '$1<br />$2', $content);
-    //$content = nl2br($content);
-    //$content = preg_replace('/^p\. (.*)\/p\.$/m', '<p>$1</p>', $content);
+
+    $content = preg_replace('/<br \/>(<p>|<\/p>)/m', '$1', $content);
+    $content = preg_replace('/(<p>|<\/p>)<br \/>/m', '$1', $content);
+
+    $content = preg_replace("/(>[\n ]*)<br \/>([\n ]*<)/m", '$1$2', $content);
 
 ?>
 
