@@ -39,6 +39,8 @@
     $content = preg_replace('/^title\. (.*)$/m', '', $content);
     // h1 à h6
     $content = preg_replace('/^h([0-9]+)\. (.*)$/m', '<h$1>$2</h$1>', $content);
+    // hr
+    $content = preg_replace('/^hr\.$/m', '<hr />', $content);
     // ul
     $content = preg_replace(['/^ul\.$/m', '/^\/ul\.$/m'], ['<ul>', '</ul>'], $content);
     $content = preg_replace('/^li\. (.*)$/m', '<li>$1</li>', $content);
@@ -58,6 +60,7 @@
 <head>
     <title><?php print $title; ?></title>
     <link rel="stylesheet" href="base.css" type="text/css"/>
+    <link rel="shortcut icon" type="image/png" href="logo_me_noir.png"/>
 
 </head>
 <body>
