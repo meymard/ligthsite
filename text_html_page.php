@@ -59,8 +59,8 @@
 <html>
 <head>
     <title><?php print $title; ?></title>
-    <link rel="stylesheet" href="base.css" type="text/css"/>
-    <link rel="shortcut icon" type="image/png" href="logo_me_noir.png"/>
+    <link rel="stylesheet" href="/base.css" type="text/css"/>
+    <link rel="shortcut icon" type="image/png" href="/logo_me_noir.png"/>
 
 </head>
 <body>
@@ -77,7 +77,7 @@
                     preg_match('/^title\. (.*)$/m', $fileContent, $matches);
                     $name = isset($matches[1]) ? $matches[1] : preg_replace('/(.*)\.eyco$/', '$1', $file);
                 ?>
-                <li><a href="<?php print $file; ?>"><?php print  $name; ?></a></li>
+                <li><a href="/<?php print $file; ?>"><?php print  $name; ?></a></li>
             <?php endif; ?>
         <?php endwhile; ?>
         </ul>

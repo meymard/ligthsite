@@ -3,5 +3,5 @@ title. Accès incorrect !
 h1. Vous vous ètes perdu ?
 
 p.
-N'attendez plus, revenez à la page d'accueil. http://localhost
+N'attendez plus, revenez à la page d'accueil. <a href="/">Ici !</a>
 /p.

@@ -1,8 +1,11 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     #RewriteBase /lightsite
-    RewriteRule ^((.*)\.eyco$) text_html_page.php?file=$1 [QSA,L]
+    RewriteRule ^((.*)\.eyco$) /text_html_page.php?file=$1 [QSA,L]
+    RewriteRule ^$ /accueil.eyco [QSA,L]
 </IfModule>
 ErrorDocument 404 /errors/404.eyco
+ErrorDocument 403 /errors/403.eyco
 IndexIgnore /header.txt
 IndexIgnore /text_html_page.php
+Options -Indexes
