@@ -12,6 +12,7 @@
         $size = 2000;
     }
     $file = $_GET['file'];
+    $isGoodFile = preg_match('/\.eyco$/', $file);
 
     $headerFile = sprintf('%s/header.txt', dirname(__FILE__));
     if (file_exists($headerFile)) {
@@ -21,7 +22,7 @@
     }
 
     $errorFile = 'errors/404.eyco';
-    if (file_exists($file)) {
+    if ($isGoodFile && file_exists($file)) {
         $content = file_get_contents($file);
     } elseif (file_exists($errorFile)) {
         $content = file_get_contents($errorFile);
