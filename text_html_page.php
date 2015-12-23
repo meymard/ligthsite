@@ -53,6 +53,7 @@
     $content = preg_replace('/(<p>|<\/p>)<br \/>/m', '$1', $content);
 
     $content = preg_replace("/(>[\n ]*)<br \/>([\n ]*<)/m", '$1$2', $content);
+    $content = preg_replace(["/(>[\n ]*)<br \/>/m", "/<br \/>([\n ]*<)/m"], '$1', $content);
 
 ?>
 
@@ -67,10 +68,11 @@
 <div class="main">
     <header class="content">
     <?php print $header; ?>
-    <?php if ($handle = opendir(dirname(__FILE__))): ?>
+    <?php if (file_exists(dirname(__FILE__))): ?>
     <nav>
         <ul>
-        <?php while (false !== ($file = readdir($handle))) : ?>
+        <?php $files = scandir(dirname(__FILE__)); ?>
+        <?php foreach ($files as $file) : ?>
             <?php if (is_file($file) && preg_match('/\.eyco$/', $file)): ?>
                 <?php
                     $fileContent = file_get_contents($file);
@@ -79,12 +81,11 @@
                 ?>
                 <li><a href="/<?php print $file; ?>"><?php print  $name; ?></a></li>
             <?php endif; ?>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
         </ul>
     </nav>
-    <?php closedir($handle); ?>
-    </header>
     <?php endif; ?>
+    </header>
     <div class="content">
         <?php
             print $content;
