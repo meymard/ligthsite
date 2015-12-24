@@ -35,6 +35,7 @@
 
     // url
     $content = preg_replace("/(^| )http:\/\/([^ \n]+)($| )/m", ' <a href="http://$2">$2</a> ', $content);
+    $content = str_replace('{homepage}', '<a href="/">page d\'accueil</a>', $content);
 
     // title
     $content = preg_replace('/^title\. (.*)$/m', '', $content);
@@ -73,14 +74,15 @@
     <nav>
         <ul>
         <?php $files = scandir(dirname(__FILE__)); ?>
-        <?php foreach ($files as $file) : ?>
-            <?php if (is_file($file) && preg_match('/\.eyco$/', $file)): ?>
+        <?php foreach ($files as $f) : ?>
+            <?php if (is_file($f) && preg_match('/\.eyco$/', $f)): ?>
                 <?php
-                    $fileContent = file_get_contents($file);
+                    $matches = [];
+                    $fileContent = file_get_contents($f);
                     preg_match('/^title\. (.*)$/m', $fileContent, $matches);
-                    $name = isset($matches[1]) ? $matches[1] : preg_replace('/(.*)\.eyco$/', '$1', $file);
+                    $name = isset($matches[1]) ? $matches[1] : preg_replace('/(.*)\.eyco$/', '$1', $f);
                 ?>
-                <li><a href="/<?php print $file; ?>"><?php print  $name; ?></a></li>
+                <li><a href="/<?php print $f; ?>"<?php print ($file == $f) ? ' class="current"' : ''; ?>><?php print  $name; ?></a></li>
             <?php endif; ?>
         <?php endforeach; ?>
         </ul>

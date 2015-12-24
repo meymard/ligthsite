@@ -54,12 +54,9 @@ p {
 a {
     text-decoration: none;
 }
-a:link, a:visited {
+a:link, a:visited, a.current:hover, a.current:active {
     color: #CFCFCF;
 }
-a:hover {
-    color: #616161;
-}
-a:active {
+a:hover, a:active, a.current {
     color: #616161;
 }
