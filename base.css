@@ -2,13 +2,13 @@ body {
     background-color: #171717;
     color: #999;
     font-size: 1.2em;
+    -webkit-text-size-adjust: 100%;
 }
 .content {
-    text-align: justify;
-    border: 10px;
+    border: .5em;
     border-style: double;
-    padding: 30px;
-    margin-bottom: 50px;
+    padding: 1em;
+    margin-bottom: 1em;
 }
 .content span {
     color: #6C798D;
@@ -27,20 +27,41 @@ div .content {
 header pre {
     overflow: hidden;
     margin: 0px;
+    padding: 1px;
+    font-size: 10px;
 }
 
-nav ul {
-    list-style-type: none;
+nav {
     margin: 0px;
+    padding: 0px;
+}
+nav fieldset {
+    border: 0;
+    margin: 0;
+    height: 0;
+    border-top: 2px dashed;
+}
+nav fieldset legend {
+    text-align: center;
+}
+nav fieldset:hover {
+    height: auto;
+    border: 2px dashed;
+}
+nav fieldset:hover ul#menu {
+    display: block;
+    margin: 0;
+}
+#menu {
+    display: none;
+    list-style-type: none;
+    padding: 0px;
+}
+ul#menu li {
     padding: 5px;
     border-top: 2px dashed;
 }
-nav ul li {
-    display: inline;
-    padding: 5px;
-    border-right: 2px dashed;
-}
-nav ul li:last-child {
+ul#menu li:first-child {
     border: none;
 }
 
@@ -59,4 +80,7 @@ a:link, a:visited, a.current:hover, a.current:active {
 }
 a:hover, a:active, a.current {
     color: #616161;
+}
+.erreur {
+    color: #FD8A8A;
 }

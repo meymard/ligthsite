@@ -62,8 +62,10 @@
 <html>
 <head>
     <title><?php print $title; ?></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="/base.css" type="text/css"/>
     <link rel="shortcut icon" type="image/png" href="/logo_me_noir.png"/>
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 </head>
 <body>
@@ -72,20 +74,23 @@
     <?php print $header; ?>
     <?php if (file_exists(dirname(__FILE__))): ?>
     <nav>
-        <ul>
-        <?php $files = scandir(dirname(__FILE__)); ?>
-        <?php foreach ($files as $f) : ?>
-            <?php if (is_file($f) && preg_match('/\.eyco$/', $f)): ?>
-                <?php
-                    $matches = [];
-                    $fileContent = file_get_contents($f);
-                    preg_match('/^title\. (.*)$/m', $fileContent, $matches);
-                    $name = isset($matches[1]) ? $matches[1] : preg_replace('/(.*)\.eyco$/', '$1', $f);
-                ?>
-                <li><a href="/<?php print $f; ?>"<?php print ($file == $f) ? ' class="current"' : ''; ?>><?php print  $name; ?></a></li>
-            <?php endif; ?>
-        <?php endforeach; ?>
-        </ul>
+        <fieldset>
+            <legend>Menu</legend>
+            <ul id="menu">
+            <?php $files = scandir(dirname(__FILE__)); ?>
+            <?php foreach ($files as $f) : ?>
+                <?php if (is_file($f) && preg_match('/\.eyco$/', $f)): ?>
+                    <?php
+                        $matches = [];
+                        $fileContent = file_get_contents($f);
+                        preg_match('/^title\. (.*)$/m', $fileContent, $matches);
+                        $name = isset($matches[1]) ? $matches[1] : preg_replace('/(.*)\.eyco$/', '$1', $f);
+                    ?>
+                    <li><a href="/<?php print $f; ?>"<?php print ($file == $f) ? ' class="current"' : ''; ?>><?php print  $name; ?></a></li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            </ul>
+        </fieldset>
     </nav>
     <?php endif; ?>
     </header>
