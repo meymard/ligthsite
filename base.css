@@ -16,6 +16,7 @@ body {
 header.content {
     background-position: center top;
     padding: 10px;
+    overflow: auto;
 }
 div .content {
     background-image: url(debian.png);
@@ -32,28 +33,19 @@ header pre {
 }
 
 nav {
+    float: right;
     margin: 0px;
     padding: 0px;
 }
 nav fieldset {
     border: 0;
-    margin: 0;
-    height: 0;
-    border-top: 2px dashed;
+    margin-left: 0.5em;
+    border: 2px dashed;
 }
 nav fieldset legend {
     text-align: center;
 }
-nav fieldset:hover {
-    height: auto;
-    border: 2px dashed;
-}
-nav fieldset:hover ul#menu {
-    display: block;
-    margin: 0;
-}
 #menu {
-    display: none;
     list-style-type: none;
     padding: 0px;
 }
@@ -63,6 +55,9 @@ ul#menu li {
 }
 ul#menu li:first-child {
     border: none;
+}
+ul#menu li a {
+    display: block;
 }
 
 h1, h2, h3, h4, h5, h6 {

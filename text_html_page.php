@@ -71,7 +71,6 @@
 <body>
 <div class="main">
     <header class="content">
-    <?php print $header; ?>
     <?php if (file_exists(dirname(__FILE__))): ?>
     <nav>
         <fieldset>
@@ -93,6 +92,9 @@
         </fieldset>
     </nav>
     <?php endif; ?>
+    <div id="header">
+        <?php print $header; ?>
+    </div>
     </header>
     <div class="content">
         <?php
