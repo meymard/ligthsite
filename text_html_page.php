@@ -48,6 +48,8 @@
     $content = preg_replace('/^li\. (.*)$/m', '<li>$1</li>', $content);
     // p
     $content = preg_replace(['/^p\.$/m', '/^\/p\.$/m'], ['<p>', '</p>'], $content);
+    // pre
+    $content = preg_replace(['/^pre\.$/m', '/^\/pre\.$/m'], ['<pre>', '</pre>'], $content);
     // br
     $content = preg_replace("/(?!<[\/]?.*>)[\n]+(?!<[\/]?.*>)/m", '$1<br />$2', $content);
 
