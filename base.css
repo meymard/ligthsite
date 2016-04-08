@@ -25,6 +25,11 @@ div .content {
     background-attachment: fixed;
 }
 
+.content article:not(:last-child) {
+    border-bottom: .2em;
+    border-bottom-style: solid;
+}
+
 header pre {
     overflow: hidden;
     margin: 0px;

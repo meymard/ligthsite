@@ -1,11 +1,15 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
     #RewriteBase /lightsite
-    RewriteRule ^((.*)\.eyco$) /text_html_page.php?file=$1 [QSA,L]
-    RewriteRule ^$ /accueil.eyco [QSA,L]
+    RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+    RewriteRule ^(.*) - [E=BASE:%1]
+    RewriteRule ^((.*)\.eyco$) %{ENV:BASE}/text_html_page.php?file=$1 [QSA,L]
+    #RewriteRule ^$ %{ENV:BASE}/accueil.eyco [QSA,L]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^(.*)$ %{ENV:BASE}/text_html_page.php?file=$1 [QSA,L]
 </IfModule>
-ErrorDocument 404 /errors/404.eyco
-ErrorDocument 403 /errors/403.eyco
-IndexIgnore /header.txt
-IndexIgnore /text_html_page.php
+ErrorDocument 404 http://%{ENV:BASE}/errors/404.eyco
+ErrorDocument 403 http://%{ENV:BASE}/errors/403.eyco
+IndexIgnore %{ENV:BASE}/header.txt
+IndexIgnore %{ENV:BASE}/text_html_page.php
 Options -Indexes
