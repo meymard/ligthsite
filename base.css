@@ -4,11 +4,20 @@ body {
     font-size: 1.2em;
     -webkit-text-size-adjust: 100%;
 }
+.content > * {
+    background-color: rgba(25, 25, 25, 0.5);
+}
 .content {
     border: .5em;
     border-style: double;
     padding: 1em;
     margin-bottom: 1em;
+
+    background-image: url(debian.png);
+    background-image: url(avatar.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-attachment: fixed;
 }
 .content span {
     color: #6C798D;
@@ -17,12 +26,6 @@ header.content {
     background-position: center top;
     padding: 10px;
     overflow: auto;
-}
-div .content {
-    background-image: url(debian.png);
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-attachment: fixed;
 }
 
 .content article:not(:last-child) {
